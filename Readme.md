@@ -1,34 +1,34 @@
-# CSBigCaptain's Word Tester
+# CSBigCaptain的单词默写器
 
-## About
+## 关于
 
-The tester is a simple and weak word tester. But it will get stronger as I grow up!
+这个默写器是一个简单而薄弱的单词默写器。但随着我的成长，它会越来越强大！
 
-The program was made in Python 3.10.6 (Microsoft Store Edition).
+该程序使用 Python 3.10.6（Microsoft Store Edition）制作。
 
-## How to use
+## 如何使用
 
-- If you want to use the word tester, you must make sure your PC has a Python environment. About how to install Python: this is not within the technical limits of this readme document.
+- 如果您想使用单词tester，则必须确保您的PC具有Python环境。关于如何安装Python:这不在本自述文档的技术限制范围内。
 
-To run the program, input this piece of code into shells like, for example, `cmd` and `powershell`.
+要运行程序，将这段代码输入到shell中，例如 `cmd` 和 `powershell`.
   ```powershell
   python main.py
   ```
 
-**<u>Warning: You must make sure these Python files and two Datas folder are in the same path. Instead, the program may have unexcepted bugs!</u>**
+**<u>警告:您必须确保这些Python文件和两个data文件夹在同一路径下。否则程序可能有意料之外的错误!</u>**
 
-- About the MainFile :
-  - The Datas folders (including `TxtDatas` and `JsonDatas`) are used to store questions that you have been asked.And they must be in the same path with these Python files. Without these files, or if the file path has problems, the program may report an error.
-  - The program has the JSON mode and the TXT mode. The txt mode uses the `TxtDatas/MainFile.txt` file and the json mode uses the `JsonDatas/MainFile.json` file. Editing the txt file is easy, but keeping the format right and streamlining is a bit difficult. Maybe the little format mistake in a superbly large txt file could make you superbly sad, and it is difficult to group words. As a result, I recommend that you use the json mode. Although editing a JSON file is difficult and troublesome, the JSON mode supports nested dictionaries, which the TXT mode cannot do.
-  - <u>**Json mode warning: If a dictionary contains both words and other types of data, the program will automatically skip the other types of data and keep the dictionary when reading it.**</u>
+- 关于MainFile :
+  - Data文件夹（包括 `TxtDatas` 和 `JsonDatas`）用于存储您被询问的问题。它们必须与这些Python文件在同一路径下。没有这些文件，或者如果文件路径有问题，程序可能会报告一个错误。
+  - 程序有JSON模式和TXT模式。txt模式使用`TxtDatas/MainFile.txt` 文件，json模式使用`JsonDatas/MainFile.json` 文件。json文件。编辑txt文件很容易，但保持格式正确和精简有点困难。也许在一个非常大的文本文件中，一个小小的格式错误会让你非常难过，而且很难对单词进行分组。因此，我建议您使用json模式。虽然编辑JSON文件是困难和麻烦的，但JSON模式支持嵌套字典，这是TXT模式无法做到的。
+  - <u>**Json模式警告:如果字典中同时包含单词和其他类型的数据，程序在读取时将自动跳过其他类型的数据，并保留字典。**</u>
 
-## Plans in the future
+## 未来的计划
 
-The project's development has been stopped as I have to study in school. But I still collect the advice and bugs of the program. If you discover any bugs or have any suggestions, I would be most welcome to open an issue!
+由于我要上学，项目开发已经停止。但我仍在收集程序的建议和错误。如果您发现任何错误或有任何建议，我非常欢迎您提出问题！
 
-I plan to restart development on the program in June and release the first version in August.
+我计划在六月重新开始程序开发，并在八月发布第一个版本。
 
-Thanks, and enjoy the project!
+谢谢您，祝您使用愉快！
 
 </br>
 CSBigCaptain
