@@ -18,11 +18,11 @@ def askOriginalWords(finalList):
     print('=============')
     while True:
         int = random.randint(0,len(finalList) - 1)
-        print('Question %d: %s' % (questionMEM , finalList[int][translations]))
-        answer1 = input('Your answer: ')
+        print('问题 %d: %s' % (questionMEM , finalList[int][translations]))
+        answer1 = input('你的答案是:')
         if answer1 == finalList[int][origins]:
-            askedLog.write('\nQuestion %d: %s' % (questionMEM, finalList[int][origins]))
-            askedLog.write('\nAnswer: %s  (True)' % answer1)
+            askedLog.write('\n问题 %d: %s' % (questionMEM, finalList[int][origins]))
+            askedLog.write('\n答案: %s  (True)' % answer1)
             askedLog.write('\n-------')
             print('Right''\n-------')
             trueMEM += 1
@@ -30,8 +30,8 @@ def askOriginalWords(finalList):
             continue
         elif answer1 == 'q':
             print('*************************')
-            print('The test have done.Here is the simple information of the test.',\
-                  'And you can see the detailed information of the test in the Log file.')
+            print('测试已经完成了。以下是测试的简单信息。',\
+                  '您可以在Log文件中看到测试的详细信息。')
             print('\tTotleMember: %d\n\tTrueMember: %d \n\tFalseMember: %d ' % (questionMEM - 1,trueMEM , falseMEM))           
             askedLog.write('\nSummarize:'\
                            '\nTotleMember: %d\nTrueMember: %d \nFalseMember: %d ' % (questionMEM - 1,trueMEM , falseMEM))
@@ -47,7 +47,7 @@ def askOriginalWords(finalList):
             print('=============')
             break
         else:
-            print('Wrong！You can try again. We will give the key if you wrong again')
+            print('错了!你可以再试一次。如果你再错，我们就给你答案。你可以再试一次。如果你再错，我们就把答案给你')
             answer2 = input()
             if answer2 == finalList[int][origins]:
                 print('Right''\n-------')
@@ -55,12 +55,12 @@ def askOriginalWords(finalList):
                 trueMEM += 1
                 continue
             else:
-                askedLog.write('\nQuestion %d: %s' % (questionMEM, finalList[int][origins]))
-                askedLog.write('\nAnswer1: %s (False)' % answer1)
-                askedLog.write('\nAnswer2: %s (False)' % answer2)
-                askedLog.write('\nRight Answer : %s' % finalList[int][origins])
+                askedLog.write('\n问题 %d: %s' % (questionMEM, finalList[int][origins]))
+                askedLog.write('\n答案1: %s (False)' % answer1)
+                askedLog.write('\n答案2: %s (False)' % answer2)
+                askedLog.write('\n正确答案 : %s' % finalList[int][origins])
                 askedLog.write('\n-------')
-                print('What is a pity! The right answer is:')
+                print('真可惜!正确答案是:')
                 print(finalList[int][origins])
                 print('-------')
                 wrongWords.append([finalList[int] , [answer1,answer2]])
@@ -85,15 +85,15 @@ def askTranslatedWords(finalList):
     askedLog.write(time.asctime())
     askedLog.write('\nMode: B(Origins => translation)\n-------------------------------------')
     print('=============')
-    print('Warning: The mode is subjective question. You should judge right or wrong by yourself.')
+    print('警告:模式是主观问题。你应该自己判断对错。')
     while True:
         int = random.randint(0,len(finalList) - 1)
         print('Question %d: %s ' % (questionMEM , finalList[int][origins]))
         answer1 = input('Your answer：')
         if answer1 == 'q':
             print('*************************')
-            print('The test have done.Here is the simple information of the test.',\
-                  'And you can see the detailed information of the test in the Log file.')
+            print('测试已经完成了。以下是测试的简单信息。',\
+                  '您可以在Log文件中看到测试的详细信息。')
             print('\tTotleMember: %d\n\tTrueMember: %d\n\tFalseMember: %d\n\tUnknownMember: %d' \
                     % (questionMEM - 1,trueMEM , falseMEM , unknownMEM))
             askedLog.write( '\nSummarize:' \
@@ -102,31 +102,31 @@ def askTranslatedWords(finalList):
             if (questionMEM - 1) != 0:                  #被除数为0会怎么样呢？
                 print('Correct rate: %.4f' % (trueMEM/(questionMEM - 1)))
                 askedLog.write('\nCorrect rate: %.4f' % (trueMEM/(questionMEM - 1)))
-            askedLog.write('\nWrong Questions:')      #错误回答的问题写入到日志中
+            askedLog.write('\n错误回答:')      #错误回答的问题写入到日志中
             for little in wrongQuestions:
-                askedLog.write('\n\t%s %s (Your Answer：%s )' % (little[0][0],little[0][1],little[1]))
-            askedLog.write('\nUnknown Questions:')
+                askedLog.write('\n\t%s %s (你的答案是：%s )' % (little[0][0],little[0][1],little[1]))
+            askedLog.write('\n未能判断对错的问题:')
             for little in unknownQuestions:             #未能判断对错的问题也应该写入到日志中
-                askedLog.write('\n\t%s %s (Your Answer：%s )' % (little[0][0],little[0][1],little[1]))
+                askedLog.write('\n\t%s %s (你的答案是：%s )' % (little[0][0],little[0][1],little[1]))
             askedLog.write('\n------The End Line-------\n\n')
             askedLog.close()
             break
-        print('--Your judge was recorded.We will show the standard answer.')
-        print('--The standard answer is：%s' % finalList[int][translations])
+        print('--你的答案被记录下来了。我们会给出标准答案。')
+        print('--标准答案是：%s' % finalList[int][translations])
         while True:
-            answer2 = input('Check your answer(Right（“y”）Wrong（“n”）Skip（“ENTER”）): ')
+            answer2 = input('检查你的答案(正确(“y”)错误(“n”)跳过(“ENTER”)):')
             if answer2 == 'y':
-                askedLog.write('\nQuestion %d: %s' % (questionMEM, finalList[int][origins]))
-                askedLog.write('\nAnswer: %s  (True)' % answer1)
+                askedLog.write('\n问题 %d: %s' % (questionMEM, finalList[int][origins]))
+                askedLog.write('\n答案: %s  (True)' % answer1)
                 askedLog.write('\n-------')
                 trueMEM += 1
                 questionMEM += 1
                 print('-------')
                 break
             elif answer2 == 'n':
-                askedLog.write('\nQuestion %d: %s' % (questionMEM, finalList[int][origins]))
-                askedLog.write('\nYour Answer: %s (False)' % answer1)
-                askedLog.write('\nStandard Answer: %s' % finalList[int][translations])
+                askedLog.write('\n问题 %d: %s' % (questionMEM, finalList[int][origins]))
+                askedLog.write('\n你的答案: %s (False)' % answer1)
+                askedLog.write('\n标准答案: %s' % finalList[int][translations])
                 askedLog.write('\n-------')
                 wrongQuestions.append([finalList[int] , answer1])
                 falseMEM += 1
@@ -134,8 +134,8 @@ def askTranslatedWords(finalList):
                 print('-------')
                 break
             elif answer2 == '':
-                askedLog.write('\nQuestion %d: %s' % (questionMEM, finalList[int][origins]))
-                askedLog.write('\nAnswer: %s  (Unknown)' % answer1)
+                askedLog.write('\n问题 %d: %s' % (questionMEM, finalList[int][origins]))
+                askedLog.write('\n答案: %s  (未知)' % answer1)
                 askedLog.write('\n-------')
                 unknownQuestions.append([finalList[int] , answer1])
                 unknownMEM += 1
@@ -143,7 +143,7 @@ def askTranslatedWords(finalList):
                 print('-------')
                 break
             else:
-                print('ERROR! The answer is not defined! You should answer again!')
+                print('错误!此答案没有被定义!你应该再回答一次!')
                 continue
  
 def practiceMode(finalList):
@@ -154,8 +154,8 @@ def practiceMode(finalList):
     while True:
         if questionMEM > len(finalList):
             break
-        print('Word %d : %s  %s' % (questionMEM , finalList[questionMEM-1][origin] , finalList[questionMEM-1][translation]))
-        print('Input the word: ',end='')
+        print('单词 %d : %s  %s' % (questionMEM , finalList[questionMEM-1][origin] , finalList[questionMEM-1][translation]))
+        print('输入单词: ',end='')
         while True:
             answer = input()
             if answer == finalList[questionMEM - 1][origin]:
@@ -164,9 +164,9 @@ def practiceMode(finalList):
             if answer == 'q':
                 break
             else:
-                print('Wrong! Please input again!')
+                print('错了!请重新输入!')
                 continue
         if answer == 'q':
             break
-    print('The practice is over.')
+    print('练习已结束')
     print('=============')    

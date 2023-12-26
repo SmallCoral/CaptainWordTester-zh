@@ -4,12 +4,12 @@ import change_fuctions
 def jsonOrTxt():
     while True :
         print('----------------------------------------------',\
-              'Choose your reading mode:',\
-              'Press "a": Json mode.(The programe will read the Json file)',\
-              'Press "b": Txt mode.(The programe will read the txt file)',\
-              'Press "q": Quit the programe.',\
-              'If you done ,you should press "ENTER".(You should do it in the programe every time)',sep = '\n')
-        judge = input('Your answer:')
+              '选择阅读模式',\
+              '按 "a"： Json 模式（程序将读取 Json 文件）',\
+              '按 "b"： txt 模式（程序将读取 txt 文件）',\
+              '按 "q"： 退出程序',\
+              '如果已完成，则应按 "ENTER "键（每次都应在程序中完成）。',sep = '\n')
+        judge = input('你的答案是:')
         if judge == 'a':                                    #Json Files
             return 1
         elif judge == 'b':                                  #Txt Files
@@ -17,47 +17,47 @@ def jsonOrTxt():
         elif judge == 'q':
             return 3
         else:
-            print("Your answer isn't defined! \nPlease input again!")
+            print("您的答案未定义！\n请重新输入！")
             continue
 
 def askDict(Dict):
     '''
     scanCycle函数的必要部分
     '''
-    print('Choose a Grope which you want to choose:')
-    print('Press "q" to return the mode choose page.')
+    print('选择一个你想要选择的Grope:')
+    print('按“q”键返回模式选择。')
     i = 1
     List = change_fuctions.dictToList(Dict)
     for little in List:
         print('%d : %s.' % (i , little[0]))
         i += 1
     while True:                     #判定输入的字符是否合法
-        choose = input('Input its ID then press "ENTER":')
+        choose = input('输入其ID，然后按“ENTER”:')
         #这个地方使用try的原因：如果输入为非数字（比如按Q键是退出），就会报错。
         try:
             choose = int(choose)
             if choose > 0 and choose <= len(List):
                 break
             else:
-                print('Please check and input the true answer!')
+                print('请核对并输入真实答案!')
                 continue
         except:
             if choose == 'q':
                 return 'EXIT'
             else:
-                print("Your answer isn't defined!")
+                print("你的答案没有定义!")
     return List[choose - 1][1]
 
 def testModeChoose():
     while True:
         print('----------------------------------------------------------',\
-              'Let us choose your mode :',\
-              'Press "a": Guess words by translations!',\
-              'Press "b": Translate words!',\
-              'Press "c": Practise!',\
-              'Press "q": Break.',\
-              'Press "ENTER" to confirm.',sep = '\n')
-        answer = input('Your answer:')
+              '让我们选择你的模式:',\
+              '按“a”键:根据翻译猜单词!',\
+              '按“b”:翻译单词!',\
+              '按“c”:练习!',\
+              '按“q”键:中断。',\
+              '按“ENTER”确认。',sep = '\n')
+        answer = input('你的答案是:')
         if answer == 'a':
             return 1
         elif answer == 'b':
@@ -67,5 +67,5 @@ def testModeChoose():
         elif answer == 'q':
             return 'EXIT'
         else:
-            print("Your answer isn't defined!\nPlease input again!")
+            print("您的答案未定义！\n请重新输入！")
             continue

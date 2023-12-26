@@ -17,7 +17,7 @@ def readJsonFile():
     try:
         askedFile = open('./JsonDatas/MainFile.json','rt',encoding = 'utf-8')
     except:
-        print('We can"t find the "./JsonDatas/MainFile.txt" file! Please make sure the file is here and try again!')
+        print('我们找不到./JsonDatas/MainFile.txt文件!请确认文件在这里，然后再试一次!')
         return 'EXIT'
     waitString = askedFile.read()
     askedFile.close()
@@ -28,8 +28,8 @@ def scanCycle(startDict):
     while True:
         judgeList = scanDict(startDict)
         if judgeList[1] == 0:
-            print('The value attribute of the dictionary mixes dictionaries and strings.\n',\
-                  'So we keep the dictionary, the string will not be recognized.')
+            print('字典的value属性混合了字典和字符串。\n',\
+                  '所以我们保留字典，字符串不会被识别。')
         if judgeList[1] == 'str':
             #将字典转化为列表!
             fianlList = change_fuctions.dictToList(judgeList[0])
@@ -63,7 +63,7 @@ def readTxtFile(FORMAT , WRONGLISTNOTIFY):
     try:
         askedFile = open('./TxtDatas/MainFile.txt','rt',encoding='utf-8')
     except:
-        print('We can"t find the "./TxtDatas/MainFile.txt" file! Please make sure the file is here and try again!')
+        print('我们找不到./TxtDatas/MainFile.txt文件!请确认文件在这里，然后再试一次!')
         return 'EXIT'       
     waitString = askedFile.read()
     askedFile.close()
@@ -82,7 +82,7 @@ def readTxtFile(FORMAT , WRONGLISTNOTIFY):
         finalList.pop(little[0])
     wrongList = wrongList[ : :-1]       #再倒序回来是为了打印的时候更符合常人的阅读习惯
     if len(wrongList) > 0 and WRONGLISTNOTIFY == 1:
-        print('These datas have problems when reading the file. In order to avoid bugs, we have ignored it.')
+        print('这些数据在读取文件时有问题。为了避免bug，我们忽略了它。')
         for little in wrongList:
             print('The line:',little[0]+1,little[1],sep=' ')
     return finalList
